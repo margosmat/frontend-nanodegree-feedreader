@@ -26,7 +26,6 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
@@ -38,7 +37,6 @@ $(function() {
                 expect(feed.url.length).not.toBe(0);
             }
         });
-
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
@@ -52,7 +50,6 @@ $(function() {
             }
         });
     });
-
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function() {
@@ -98,10 +95,29 @@ $(function() {
             done();
         });
     });
+    
     /* TODO: Write a new test suite named "New Feed Selection" */
-
+    describe('New Feed Selection', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        let firstFeed, secondFeed;
+        
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                firstFeed = $('.feed');
+                done();
+            });
+            loadFeed(1, function() {
+                secondFeed = $('.feed');
+                done();
+            });
+        });
+
+        it('should contain different content', function(done) {
+            expect(firstFeed).not.toBe(secondFeed);
+            done();
+        });
+    });
 }());
