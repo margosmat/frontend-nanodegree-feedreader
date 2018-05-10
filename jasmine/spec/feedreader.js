@@ -106,11 +106,10 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, function() {
                 firstFeed = $('.feed');
-                done();
-            });
-            loadFeed(1, function() {
-                secondFeed = $('.feed');
-                done();
+                loadFeed(1, function() {
+                    secondFeed = $('.feed');
+                    done();
+                });
             });
         });
 
