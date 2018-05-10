@@ -105,9 +105,9 @@ $(function() {
         
         beforeEach(function(done) {
             loadFeed(0, function() {
-                firstFeed = $('.feed');
+                firstFeed = $('.feed').html();
                 loadFeed(1, function() {
-                    secondFeed = $('.feed');
+                    secondFeed = $('.feed').html();
                     done();
                 });
             });
